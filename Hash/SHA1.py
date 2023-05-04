@@ -1,4 +1,3 @@
-from src.Util.number import circuit_shift
 import struct
 
 
@@ -118,3 +117,8 @@ class SHA1:
         if len(self.unprocessed) == 64:
             return
         self.process_chunk(self.unprocessed[64:])
+    
+    def circuit_shift(n: int, b: int):
+    """left rotate a 32-bit integer n by b bits."""
+        n &= 0xFFFFFFFF
+        return ((n << b) | (n >> (32 - b))) & 0xFFFFFFFF
