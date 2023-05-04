@@ -118,6 +118,7 @@ class SHA1:
             return
         self.process_chunk(self.unprocessed[64:])
     
+    @staticmethod
     def circuit_shift(n: int, b: int):
     """left rotate a 32-bit integer n by b bits."""
         n &= 0xFFFFFFFF
