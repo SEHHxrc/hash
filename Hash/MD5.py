@@ -1,4 +1,3 @@
-from src.Util.number import circuit_shift
 import struct
 
 
@@ -159,6 +158,12 @@ class MD5:
             for j in range(len(mid), 0, -2):
                 result += mid[j-2:j]
         return result
+    
+    @staticmethod
+    def circuit_shift(n: int, b: int):
+        """left rotate a 32-bit integer n by b bits."""
+        n &= 0xFFFFFFFF
+        return ((n << b) | (n >> (32 - b))) & 0xFFFFFFFF
 
     @property
     def a(self) -> int:
